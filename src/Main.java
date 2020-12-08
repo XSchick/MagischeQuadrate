@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         switch (testOperation) {
             case "showMagicNumbers":
-                System.out.println(MagicSquare.showMagicNumbers(Integer.valueOf(testeingabe)));
+                System.out.println(MagicSquare.showMagicNumbers(Integer.valueOf(testeingabe))); //Outputs the magic numbers to the given n (args[1])
                 break;
             case "isMagicSquare?":
                 //MagicSquare magicSquareObj = new MagicSquare(args[])
