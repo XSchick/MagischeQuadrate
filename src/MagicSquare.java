@@ -2,19 +2,36 @@ import java.util.Arrays;
 
 public class MagicSquare {
     int[][] magicField;
+    int squareLegth;
 
-    public MagicSquare(int[][] square) {
+    public MagicSquare(int[][] square, int l) {
+        this.squareLegth = l;
         this.magicField = square;
     }
 
     public boolean isMagicSquare() {
         boolean a = false;
-        return a;
+        for (int i=0;i<this.squareLegth;i++){
+            int sumRow = 0;
+            int sumCol = 0;
+            for (int x=0;x<this.squareLegth;x++) {
+                sumRow = sumRow + this.magicField[i][x];
+                sumCol = sumCol + this.magicField[x][i];
+            }
+                if (!(this.calcMagicNumber()==sumRow&&this.calcMagicNumber()==sumCol)){
+                    return false;
+                }
+           }
+        return true;
     }
 
     public boolean isSemimagicSquare() {
         boolean b = false;
         return b;
+    }
+
+    public int calcMagicNumber(){
+        return ((squareLegth * squareLegth * squareLegth) + squareLegth) / 2;
     }
 
     /**
