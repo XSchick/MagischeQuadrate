@@ -1,5 +1,3 @@
-//import java.util.Arrays;
-
 /**
  * @author xschick
  * @version 1.3
@@ -76,10 +74,7 @@ public class MagicSquare {
      * @return true if they are equal, false if not
      */
     public boolean testingDiaSums() {
-        if ((calcMagicNumber() == diagonalLeftSum() && calcMagicNumber() == diagonalRightSum())) {
-            return true;
-        }
-        return false;
+        return calcMagicNumber() == diagonalLeftSum() && calcMagicNumber() == diagonalRightSum();
     }
 
     /**
@@ -144,8 +139,8 @@ public class MagicSquare {
             p = p + 1;
             magicNumbers[i] = ((p * p * p) + p) / 2; //Calculate the magic number and store it in the array
         }
-        for (int i = 0; i < magicNumbers.length; i++) {
-            output = output + Integer.toString(magicNumbers[i]) + ",";
+        for (int magicNumber : magicNumbers) {
+            output = output + Integer.toString(magicNumber) + ",";
         }
 
         return output.substring(0, output.length() - 1);
@@ -179,9 +174,9 @@ public class MagicSquare {
         //String stringCompArray = null; //Initializing variable to cut the rows
         //String output = ""; //Initializing final return varibale
         String compArrayasString = "";
-        for (int i = 0; i < compArray.length; i++) {
+        for (int[] ints : compArray) {
             for (int x = 0; x < compArray.length; x++) {
-                compArrayasString = compArrayasString + Integer.toString(compArray[i][x]) + " ";
+                compArrayasString = compArrayasString + Integer.toString(ints[x]) + " ";
             }
             compArrayasString = compArrayasString + "\n";
         }
