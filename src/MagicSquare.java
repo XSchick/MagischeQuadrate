@@ -1,4 +1,4 @@
-import java.util.Arrays;
+//import java.util.Arrays;
 
 /**
  * @author xschick
@@ -20,7 +20,7 @@ public class MagicSquare {
      * 1. the magicField array, which contains the square of numbers.
      * 2. the length of the square.
      *
-     * @param l edge lenghth of the magic square
+     * @param l      edge lenghth of the magic square
      * @param square magic square array
      **/
     public MagicSquare(int[][] square, int l) {
@@ -30,28 +30,25 @@ public class MagicSquare {
 
     /**
      * This method returns a Boolean value. This is true if the square is a magic square and false if not.
+     *
      * @return true if the given square is magic, false if not
      **/
     public boolean isMagicSquare() {
-        if (testingRowsAndColumSums() && testingDiaSums()) {
-            return true;
-        }
-        return false;
+        return testingRowsAndColumSums() && testingDiaSums();
     }
 
     /**
      * This method returns a boolean value. This is true if the square is a semi-magic square and false if not.
+     *
      * @return true if square is magic square, false if not
      */
     public boolean isSemimagicSquare() {
-        if (testingRowsAndColumSums()) {
-            return true;
-        }
-        return false;
+        return testingRowsAndColumSums();
     }
 
     /**
      * Testing if all sums of rows and colums are equal to the magic number
+     *
      * @return true if all sums are equal to magic number, false if not
      */
     public boolean testingRowsAndColumSums() {
@@ -61,9 +58,6 @@ public class MagicSquare {
             for (int x = 0; x < this.squareLength; x++) {
                 sumRow = sumRow + this.magicField[i][x]; //Sum of the diffrent rows
                 sumCol = sumCol + this.magicField[x][i]; //Sum of the diffrent colums
-                if (x == i) {
-
-                }
             }
             /* Is the sum of the rows and colums equal to the magic number? */
             if (!(this.calcMagicNumber() == sumRow && this.calcMagicNumber() == sumCol)) {
@@ -78,6 +72,7 @@ public class MagicSquare {
 
     /**
      * Testing if the both diagonal sums are equal to the magic number
+     *
      * @return true if they are equal, false if not
      */
     public boolean testingDiaSums() {
@@ -89,6 +84,7 @@ public class MagicSquare {
 
     /**
      * Sum up the numbers of the diagonal from top left to bottom right
+     *
      * @return the sum of tbe left diagonal
      */
     public int diagonalLeftSum() {
@@ -106,6 +102,7 @@ public class MagicSquare {
 
     /**
      * Sum up the numbers of the diagonal from top right to bottom left
+     *
      * @return the sum of tbe right diagonal
      */
     public int diagonalRightSum() {
@@ -124,6 +121,7 @@ public class MagicSquare {
 
     /**
      * Calculating the magic number with the given formula. Using n is equal to square length
+     *
      * @return the magic number for n
      **/
     public int calcMagicNumber() {
@@ -134,19 +132,23 @@ public class MagicSquare {
      * This method calculates all magic numbers up to the entered edge length k.
      * All the results are saved in a specially generated array.
      * When all magic numbers are calculated this array is converted to a String variable (output) for return
+     *
      * @param k the maximum n
      * @return String which contains all magic numbers to n=k
      **/
     static String showMagicNumbers(int k) {
         int[] magicNumbers = new int[k];
+        String output = "";
         int p = 0;
         for (int i = 0; i < k; i++) {
             p = p + 1;
             magicNumbers[i] = ((p * p * p) + p) / 2; //Calculate the magic number and store it in the array
         }
-        String output = Arrays.toString(magicNumbers); //Convert the array to a String
-        output = output.substring(1, output.length() - 1); //Cut the two square brackets
-        return output;
+        for (int i = 0; i < magicNumbers.length; i++) {
+            output = output + Integer.toString(magicNumbers[i]) + ",";
+        }
+
+        return output.substring(0, output.length() - 1);
     }
 
     /**
@@ -169,20 +171,22 @@ public class MagicSquare {
     /**
      * This method cuts a 2D Array in the right shape and
      * returns a String in a square shape without comma and square brackets
+     *
      * @param compArray the complemented array created from complement()
      * @return String in shape of a square
      **/
-    public String toString(int compArray[][]) {
-        String stringCompArray = null; //Initializing variable to cut the rows
-        String output = ""; //Initializing final return varibale
-        for (int y = 0; y < compArray.length; y++) {
-            stringCompArray = Arrays.toString(compArray[y]); //Write row y as a String in variable stringCompArray
-            stringCompArray = stringCompArray.substring(1, stringCompArray.length() - 1); //Cutting the square brackets
-            stringCompArray = stringCompArray.replace(",", ""); //Cutting the comma between in the rows
-            output = output + stringCompArray + "\n"; //Creating a String with the diffrent rows for the return
-
+    public String toString(int[][] compArray) {
+        //String stringCompArray = null; //Initializing variable to cut the rows
+        //String output = ""; //Initializing final return varibale
+        String compArrayasString = "";
+        for (int i = 0; i < compArray.length; i++) {
+            for (int x = 0; x < compArray.length; x++) {
+                compArrayasString = compArrayasString + Integer.toString(compArray[i][x]) + " ";
+            }
+            compArrayasString = compArrayasString + "\n";
         }
-        return output;
+
+        return compArrayasString;
     }
 
 }
