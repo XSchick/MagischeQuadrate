@@ -23,9 +23,11 @@ public class Main {
                 //Testing whether the field is a magic square, a semimagic square or not magical
                 if (field1.isMagicSquare()) {
                     System.out.println("magic square");
+                    break;
                 }
                 if (field1.isSemimagicSquare()) {
                     System.out.println("semimagic square");
+                    break;
                 }
                 if (!(field1.isMagicSquare()) && !(field1.isSemimagicSquare())) {
                     System.out.println("not magical");
