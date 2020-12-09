@@ -18,7 +18,7 @@ public class MagicSquare {
      * 1. the magicField array, which contains the square of numbers.
      * 2. the length of the square.
      *
-     * @param l      edge lenghth of the magic square
+     * @param l edge length of the magic square
      * @param square magic square array
      **/
     public MagicSquare(int[][] square, int l) {
@@ -32,7 +32,7 @@ public class MagicSquare {
      * @return true if the given square is magic, false if not
      **/
     public boolean isMagicSquare() {
-        return testingRowsAndColumSums() && testingDiaSums();
+        return testingRowsAndColumnSums() && testingDiaSums();
     }
 
     /**
@@ -41,23 +41,23 @@ public class MagicSquare {
      * @return true if square is magic square, false if not
      */
     public boolean isSemimagicSquare() {
-        return testingRowsAndColumSums();
+        return testingRowsAndColumnSums();
     }
 
     /**
-     * Testing if all sums of rows and colums are equal to the magic number
+     * Testing if all sums of rows and columns are equal to the magic number
      *
      * @return true if all sums are equal to magic number, false if not
      */
-    public boolean testingRowsAndColumSums() {
+    public boolean testingRowsAndColumnSums() {
         for (int i = 0; i < this.squareLength; i++) {
             int sumRow = 0;
             int sumCol = 0;
             for (int x = 0; x < this.squareLength; x++) {
-                sumRow = sumRow + this.magicField[i][x]; //Sum of the diffrent rows
-                sumCol = sumCol + this.magicField[x][i]; //Sum of the diffrent colums
+                sumRow = sumRow + this.magicField[i][x]; //Sum of the different rows
+                sumCol = sumCol + this.magicField[x][i]; //Sum of the different columns
             }
-            /* Is the sum of the rows and colums equal to the magic number? */
+            /* Is the sum of the rows and columns equal to the magic number? */
             if (!(this.calcMagicNumber() == sumRow && this.calcMagicNumber() == sumCol)) {
                 return false;
             }
@@ -172,16 +172,16 @@ public class MagicSquare {
      **/
     public String toString(int[][] compArray) {
         //String stringCompArray = null; //Initializing variable to cut the rows
-        //String output = ""; //Initializing final return varibale
-        String compArrayasString = "";
+        //String output = ""; //Initializing final return variable
+        String compArrayAsString = "";
         for (int[] ints : compArray) {
             for (int x = 0; x < compArray.length; x++) {
-                compArrayasString = compArrayasString + Integer.toString(ints[x]) + " ";
+                compArrayAsString = compArrayAsString + Integer.toString(ints[x]) + " ";
             }
-            compArrayasString = compArrayasString + "\n";
+            compArrayAsString = compArrayAsString + "\n";
         }
 
-        return compArrayasString;
+        return compArrayAsString;
     }
 
 }
