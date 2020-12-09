@@ -1,39 +1,54 @@
 import java.util.Arrays;
+/**
+ * @author xschick
+ * @version 1.3
+ * **/
 
 public class MagicSquare {
+    /** declaration of the 2d array which contains the magic square **/
     int[][] magicField;
-    int squareLegth;
+    /** edge length of the magic square**/
+    int squareLength;
 
+    /**
+     * Constructor initializes:
+     * 1. the magicField array, which contains the square of numbers.
+     * 2. the length of the square.
+     * @param l edge lenghth of the magic square
+     * @param square magic square array
+     **/
     public MagicSquare(int[][] square, int l) {
-        this.squareLegth = l;
+        this.squareLength = l;
         this.magicField = square;
     }
 
+    /**
+     * Testing wheather all rows, colums and diagonals have the same sum, called magic number.
+     **/
     public boolean isMagicSquare() {
         boolean a = false;
         int sumDia1 = 0;
         int sumDia2 = 0;
-        for (int i = 0; i < this.squareLegth; i++) {
+        for (int i = 0; i < this.squareLength; i++) {
             int sumRow = 0;
             int sumCol = 0;
-            int offset = 0;
             //System.out.println("test");
-            for (int x = 0; x < this.squareLegth; x++) {
-                sumRow = sumRow + this.magicField[i][x];
-                sumCol = sumCol + this.magicField[x][i];
+            for (int x = 0; x < this.squareLength; x++) {
+                sumRow = sumRow + this.magicField[i][x]; //Sum of the diffrent rows
+                sumCol = sumCol + this.magicField[x][i]; //Sum of the diffrent colums
                 if (x == i) {
-                    sumDia1 = sumDia1 + magicField[i][x];
-                    sumDia2 = sumDia2 + magicField[x][squareLegth-x-1];
-                    //System.out.println(sumDia1);
-                    //System.out.println(sumDia2);
+                    sumDia1 = sumDia1 + magicField[i][x]; //Sum the diagonal from top left to bottom right
+                    sumDia2 = sumDia2 + magicField[x][squareLength - x - 1]; //Sum the diagonal from top right to bottom left
                 }
             }
-        /*if (!(this.calcMagicNumber() == sumRow && this.calcMagicNumber() == sumCol)) {
-            return false;
-        }*/
+            /* Is the sum of the rows and colums equal to the magic number? */
+            if (!(this.calcMagicNumber() == sumRow && this.calcMagicNumber() == sumCol)) {
+                return false;
+            }
 
         }
-        if (!(this.calcMagicNumber() == sumDia1&&this.calcMagicNumber()==sumDia2)){
+        // Is the sum of the two diagonals equal to the magic number?
+        if (!(this.calcMagicNumber() == sumDia1 && this.calcMagicNumber() == sumDia2)) {
             return false;
         }
 
@@ -45,8 +60,11 @@ public class MagicSquare {
         return b;
     }
 
+    /**
+     * Calculating the magic number with the given formula. Using n is equal to square length
+     **/
     public int calcMagicNumber() {
-        return ((squareLegth * squareLegth * squareLegth) + squareLegth) / 2;
+        return ((squareLength * squareLength * squareLength) + squareLength) / 2;
     }
 
     /**
