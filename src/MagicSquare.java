@@ -17,7 +17,7 @@ public class MagicSquare {
      * 1. the magicField array, which contains the square of numbers.
      * 2. the length of the square.
      *
-     * @param l edge length of the magic square
+     * @param l      edge length of the magic square
      * @param square magic square array
      **/
     public MagicSquare(int[][] square, int l) {
@@ -148,9 +148,11 @@ public class MagicSquare {
     /**
      * This method takes every value in out the square and apply
      * the given formula (value * (-1) + n*n+1) to complement the square
-     * The complemented square is written to a new array
+     * The complemented square is written to a new array#
+     *
+     * @return the complemented square
      **/
-    public void complement() {
+    public int[][] complement() {
         //Creating an Array for the complemented Square
         int[][] compArray = new int[magicField.length][magicField.length];
         for (int i = 0; i < magicField.length; i++) {
@@ -159,7 +161,7 @@ public class MagicSquare {
                 compArray[i][x] = (magicField[i][x]) * (-1) + (magicField.length * magicField.length + 1);
             }
         }
-        System.out.println(toString(compArray)); //Print the complemented square
+        return compArray;
     }
 
     /**
