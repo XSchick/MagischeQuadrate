@@ -30,10 +30,10 @@ public class MagicSquare {
 
     /**
      * Testing wheather all rows, colums and diagonals have the same sum, called magic number.
+     * @return true if the given square is magic
      **/
     public boolean isMagicSquare() {
-        //System.out.println(calcMagicNumber());
-        if (testingRowsAndColumSums() && (calcMagicNumber() == diagonalLeftSum() && calcMagicNumber() == diagonalRightSum())) {
+        if (testingRowsAndColumSums() && testingDiaSums()) {
             return true;
         }
         return false;
@@ -66,6 +66,12 @@ public class MagicSquare {
 
         return true;
 
+    }
+    public boolean testingDiaSums(){
+        if ((calcMagicNumber() == diagonalLeftSum() && calcMagicNumber() == diagonalRightSum())){
+            return true;
+        }
+        return false;
     }
 
     public int diagonalLeftSum() {
