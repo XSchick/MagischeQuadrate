@@ -5,6 +5,7 @@
 public class Main {
     private static int[][] magicSquareField;
     private static int siteLength; //Length of the square
+    private MagicSquare theMagSquare;
 
     /**
      * Main method distinguishes between the different operations.
@@ -20,7 +21,8 @@ public class Main {
                 break;
             case "isMagicSquare?":
                 convertToSquare(args[1]);
-                MagicSquare field1 = new MagicSquare(magicSquareField, siteLength); //New MagicSquare object
+                MagicSquare field1 = new MagicSquare(magicSquareField); //New MagicSquare object
+                field1.setLength(siteLength);
                 //Testing whether the field is a magic square, a semimagic square or not magical
                 if (field1.isMagicSquare()) {
                     System.out.println("magic square");
@@ -36,7 +38,8 @@ public class Main {
                 break;
             case "complement":
                 convertToSquare(args[1]);
-                MagicSquare field2 = new MagicSquare(magicSquareField, siteLength);
+                MagicSquare field2 = new MagicSquare(magicSquareField);
+                field2.setLength(siteLength);
                 System.out.println(field2.toString(field2.complement()));
                 break;
             default:

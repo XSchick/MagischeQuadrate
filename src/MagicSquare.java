@@ -17,12 +17,18 @@ public class MagicSquare {
      * 1. the magicField array, which contains the square of numbers.
      * 2. the length of the square.
      *
-     * @param l      edge length of the magic square
      * @param square magic square array
      **/
-    public MagicSquare(int[][] square, int l) {
-        this.squareLength = l;
+    public MagicSquare(int[][] square) {
         this.magicField = square;
+    }
+
+    /**
+     *
+     * @param l edge length of the magic square
+     */
+    public void setLength(int l){
+        this.squareLength = l;
     }
 
     /**
