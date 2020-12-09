@@ -18,9 +18,9 @@ public class Main {
                 if (field1.isSemimagicSquare()) {
                     System.out.println("semimagic square");
                 }
-                if (!(field1.isMagicSquare()) && !(field1.isSemimagicSquare())) {
+                /*if (!(field1.isMagicSquare()) && !(field1.isSemimagicSquare())) {
                     System.out.println("not magical");
-                }
+                }*/
                 break;
             case "complement":
                 convertToSquare(args[1]);

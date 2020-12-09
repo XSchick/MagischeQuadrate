@@ -11,17 +11,32 @@ public class MagicSquare {
 
     public boolean isMagicSquare() {
         boolean a = false;
-        for (int i=0;i<this.squareLegth;i++){
+        int sumDia1 = 0;
+        int sumDia2 = 0;
+        for (int i = 0; i < this.squareLegth; i++) {
             int sumRow = 0;
             int sumCol = 0;
-            for (int x=0;x<this.squareLegth;x++) {
+            int offset = 0;
+            //System.out.println("test");
+            for (int x = 0; x < this.squareLegth; x++) {
                 sumRow = sumRow + this.magicField[i][x];
                 sumCol = sumCol + this.magicField[x][i];
-            }
-                if (!(this.calcMagicNumber()==sumRow&&this.calcMagicNumber()==sumCol)){
-                    return false;
+                if (x == i) {
+                    sumDia1 = sumDia1 + magicField[i][x];
+                    sumDia2 = sumDia2 + magicField[x][squareLegth-x-1];
+                    //System.out.println(sumDia1);
+                    //System.out.println(sumDia2);
                 }
-           }
+            }
+        /*if (!(this.calcMagicNumber() == sumRow && this.calcMagicNumber() == sumCol)) {
+            return false;
+        }*/
+
+        }
+        if (!(this.calcMagicNumber() == sumDia1&&this.calcMagicNumber()==sumDia2)){
+            return false;
+        }
+
         return true;
     }
 
@@ -30,7 +45,7 @@ public class MagicSquare {
         return b;
     }
 
-    public int calcMagicNumber(){
+    public int calcMagicNumber() {
         return ((squareLegth * squareLegth * squareLegth) + squareLegth) / 2;
     }
 
