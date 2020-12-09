@@ -4,7 +4,7 @@
  **/
 public class Main {
     private static int[][] magicSquareField;
-    private static int siteLegth; //Length of the square
+    private static int siteLength; //Length of the square
 
     /**
      * Main method distinguishes between the different operations.
@@ -19,7 +19,7 @@ public class Main {
                 break;
             case "isMagicSquare?":
                 convertToSquare(args[1]);
-                MagicSquare field1 = new MagicSquare(magicSquareField, siteLegth); //New MagicSquare object
+                MagicSquare field1 = new MagicSquare(magicSquareField, siteLength); //New MagicSquare object
                 //Testing whether the field is a magic square, a semimagic square or not magical
                 if (field1.isMagicSquare()) {
                     System.out.println("magic square");
@@ -35,7 +35,7 @@ public class Main {
                 break;
             case "complement":
                 convertToSquare(args[1]);
-                MagicSquare field2 = new MagicSquare(magicSquareField, siteLegth);
+                MagicSquare field2 = new MagicSquare(magicSquareField, siteLength);
                 field2.complement();
                 break;
             default:
@@ -53,7 +53,7 @@ public class Main {
         String[] rowArray = squareLine.split(";"); //Splittung input and write it to an array
         //Initializing new 2D Array to use it as Magic Square Field
         magicSquareField = new int[rowArray.length][rowArray.length];
-        siteLegth = rowArray.length;
+        siteLength = rowArray.length;
         for (int i = 0; i < rowArray.length; i++) {
             //Splitting another time to have the individual numbers and write it to an array
             String[] columArray = rowArray[i].split(",");

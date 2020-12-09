@@ -2,7 +2,6 @@
  * @author xschick
  * @version 1.3
  **/
-
 public class MagicSquare {
     /**
      * declaration of the 2d array which contains the magic square
@@ -171,8 +170,6 @@ public class MagicSquare {
      * @return String in shape of a square
      **/
     public String toString(int[][] compArray) {
-        //String stringCompArray = null; //Initializing variable to cut the rows
-        //String output = ""; //Initializing final return variable
         String compArrayAsString = "";
         for (int[] ints : compArray) {
             for (int x = 0; x < compArray.length; x++) {
