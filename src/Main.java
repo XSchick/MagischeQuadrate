@@ -3,7 +3,7 @@
  * @version 1.3
  **/
 public class Main {
-    private static int[][] magicSquareField;
+    private static int[][] magicSquareField; //Square
     private static int siteLength; //Length of the square
     private MagicSquare theMagSquare;
 
@@ -13,40 +13,46 @@ public class Main {
      *
      * @param args command-line argument
      **/
-    public static void main(String[] args) {
+    public Main(String[] args) {
+        convertToSquare(args[1]);
+        theMagSquare = new MagicSquare(magicSquareField);
         switch (args[0]) {
             case "showMagicNumbers":
                 //Outputs the magic numbers to the given n (args[1])
                 System.out.println(MagicSquare.showMagicNumbers(Integer.parseInt(args[1])));
                 break;
             case "isMagicSquare?":
-                convertToSquare(args[1]);
-                MagicSquare field1 = new MagicSquare(magicSquareField); //New MagicSquare object
-                field1.setLength(siteLength);
+                theMagSquare.setLength(siteLength);
                 //Testing whether the field is a magic square, a semimagic square or not magical
-                if (field1.isMagicSquare()) {
+                if (theMagSquare.isMagicSquare()) {
                     System.out.println("magic square");
                     break;
                 }
-                if (field1.isSemimagicSquare()) {
+                if (theMagSquare.isSemimagicSquare()) {
                     System.out.println("semimagic square");
                     break;
                 }
-                if (!(field1.isMagicSquare()) && !(field1.isSemimagicSquare())) {
+                if (!(theMagSquare.isMagicSquare()) && !(theMagSquare.isSemimagicSquare())) {
                     System.out.println("not magical");
                 }
                 break;
             case "complement":
-                convertToSquare(args[1]);
-                MagicSquare field2 = new MagicSquare(magicSquareField);
-                field2.setLength(siteLength);
-                System.out.println(field2.toString(field2.complement()));
+                theMagSquare.setLength(siteLength);
+                System.out.println(theMagSquare.toString(theMagSquare.complement()));
                 break;
             default:
-                System.out.println("");
                 break;
 
         }
+    }
+
+    /**
+     * Main method create new object of Main
+     *
+     * @param args command-line arguments
+     */
+    public static void main(String[] args) {
+        new Main(args);
     }
 
     /**

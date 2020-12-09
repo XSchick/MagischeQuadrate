@@ -4,18 +4,16 @@
  **/
 public class MagicSquare {
     /**
-     * declaration of the 2d array which contains the magic square
+     * Declaration of the 2d array which contains the magic square
      **/
     int[][] magicField;
     /**
-     * edge length of the magic square
+     * Edge length of the magic square
      **/
     int squareLength;
 
     /**
-     * Constructor initializes:
-     * 1. the magicField array, which contains the square of numbers.
-     * 2. the length of the square.
+     * Constructor initializes the magicField array, which contains the square of numbers.
      *
      * @param square magic square array
      **/
@@ -27,7 +25,7 @@ public class MagicSquare {
      *
      * @param l edge length of the magic square
      */
-    public void setLength(int l){
+    public void setLength(int l) {
         this.squareLength = l;
     }
 
@@ -59,8 +57,8 @@ public class MagicSquare {
             int sumRow = 0;
             int sumCol = 0;
             for (int x = 0; x < this.squareLength; x++) {
-                sumRow = sumRow + this.magicField[i][x]; //Sum of the different rows
-                sumCol = sumCol + this.magicField[x][i]; //Sum of the different columns
+                sumRow += this.magicField[i][x]; //Sum of the different rows
+                sumCol += this.magicField[x][i]; //Sum of the different columns
             }
             /* Is the sum of the rows and columns equal to the magic number? */
             if (!(this.calcMagicNumber() == sumRow && this.calcMagicNumber() == sumCol)) {
@@ -141,11 +139,11 @@ public class MagicSquare {
         String output = "";
         int p = 0;
         for (int i = 0; i < k; i++) {
-            p = p + 1;
+            p += 1;
             magicNumbers[i] = ((p * p * p) + p) / 2; //Calculate the magic number and store it in the array
         }
         for (int magicNumber : magicNumbers) {
-            output = output + Integer.toString(magicNumber) + ",";
+            output += Integer.toString(magicNumber) + ",";
         }
 
         return output.substring(0, output.length() - 1);
@@ -181,9 +179,9 @@ public class MagicSquare {
         String compArrayAsString = "";
         for (int[] ints : compArray) {
             for (int x = 0; x < compArray.length; x++) {
-                compArrayAsString = compArrayAsString + Integer.toString(ints[x]) + " ";
+                compArrayAsString += Integer.toString(ints[x]) + " ";
             }
-            compArrayAsString = compArrayAsString + "\n";
+            compArrayAsString += "\n";
         }
 
         return compArrayAsString.trim();
