@@ -180,7 +180,7 @@ public class MagicSquare {
             compArrayAsString = compArrayAsString + "\n";
         }
 
-        return compArrayAsString;
+        return compArrayAsString.trim();
     }
 
 }

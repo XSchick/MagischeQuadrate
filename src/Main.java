@@ -47,7 +47,7 @@ public class Main {
     }
 
     /**
-     * This method converts a series of numbers to a 2D array     *
+     * This method converts a series of numbers to a 2D array
      *
      * @param squareLine the input square field from the command-line argument
      **/
